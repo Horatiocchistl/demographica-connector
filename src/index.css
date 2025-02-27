@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,97 +8,189 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 215 14% 35%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 14% 35%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 14% 35%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 206 100% 37%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 213 9% 39%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 98%;
+    --muted-foreground: 215 14% 35%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 43 94% 62%;
+    --accent-foreground: 210 10% 13%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 355 78% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 216 12% 84%;
+    --input: 216 12% 84%;
+    --ring: 206 100% 37%;
 
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius: 3px;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-bold text-secondary-dark leading-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl mb-6;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl mb-5;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl mb-4;
+  }
+
+  p {
+    @apply mb-4 leading-relaxed;
+  }
+}
+
+@layer components {
+  .cms-container {
+    @apply w-full max-w-6xl mx-auto px-4 sm:px-6 py-8;
+  }
+  
+  .cms-button {
+    @apply inline-flex items-center justify-center px-6 py-3 
+    border border-transparent rounded font-sans font-medium 
+    focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all 
+    duration-200 ease-in-out;
+  }
+  
+  .cms-button-primary {
+    @apply cms-button bg-primary text-white hover:bg-primary-dark 
+    focus:ring-primary;
+  }
+  
+  .cms-button-secondary {
+    @apply cms-button bg-secondary text-white hover:bg-secondary-dark 
+    focus:ring-secondary;
+  }
+  
+  .cms-button-outline {
+    @apply cms-button bg-transparent border-current text-primary 
+    hover:bg-primary-light hover:text-primary-dark focus:ring-primary;
+  }
+  
+  .cms-field-label {
+    @apply block text-secondary-dark font-medium mb-1;
+  }
+  
+  .cms-text-input {
+    @apply block w-full px-3 py-2 border border-input rounded 
+    bg-background text-foreground focus:outline-none focus:ring-2 
+    focus:ring-primary focus:border-primary transition duration-200;
+  }
+  
+  .cms-select {
+    @apply cms-text-input appearance-none bg-no-repeat pr-10;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M7 7L10 10L13 7' stroke='%235B616B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-position: right 0.5rem center;
+  }
+  
+  .cms-checkbox {
+    @apply h-5 w-5 text-primary border-input rounded 
+    focus:ring-primary focus:ring-offset-0;
+  }
+  
+  .cms-radio {
+    @apply h-5 w-5 text-primary border-input 
+    focus:ring-primary focus:ring-offset-0;
+  }
+  
+  .cms-card {
+    @apply bg-white border border-input rounded p-6 shadow-cms 
+    transition-shadow duration-200 hover:shadow-cms-hover;
+  }
+  
+  .cms-alert {
+    @apply p-4 mb-4 border-l-4 rounded;
+  }
+  
+  .cms-alert-info {
+    @apply cms-alert bg-primary-light border-primary;
+  }
+  
+  .cms-alert-success {
+    @apply cms-alert bg-success-light border-success;
+  }
+  
+  .cms-alert-warning {
+    @apply cms-alert bg-warning-light border-warning;
+  }
+  
+  .cms-alert-error {
+    @apply cms-alert bg-destructive-light border-destructive;
+  }
+  
+  .form-step {
+    @apply opacity-0 transition-all duration-300 ease-in-out;
+  }
+  
+  .form-step.active {
+    @apply opacity-100;
+  }
+  
+  .step-indicator {
+    @apply relative flex items-center;
+  }
+  
+  .step-indicator::before {
+    content: '';
+    @apply absolute h-1 bg-secondary-light left-0 right-0 top-1/2 transform -translate-y-1/2 -z-10;
+  }
+  
+  .step-bubble {
+    @apply h-8 w-8 rounded-full flex items-center justify-center 
+    text-sm font-medium relative z-10 transition-all duration-300 ease-in-out;
+  }
+  
+  .step-bubble.completed {
+    @apply bg-success text-white;
+  }
+  
+  .step-bubble.active {
+    @apply bg-primary text-white animate-pulse-gentle;
+  }
+  
+  .step-bubble.incomplete {
+    @apply bg-secondary-light text-secondary;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .focus-outline {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+  
+  .transition-standard {
+    @apply transition-all duration-300 ease-in-out;
   }
 }
